@@ -18,9 +18,23 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <servlet>
+        <servlet-name>QuestionService</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.askdynamics.web</param-value>
+        </init-param>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>UserService</servlet-name>
-        <url-pattern>/query/userservice/*</url-pattern>
+        <url-pattern>/userservice/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>QuestionService</servlet-name>
+        <url-pattern>/questionservice/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

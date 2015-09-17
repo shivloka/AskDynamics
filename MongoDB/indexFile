@@ -1,0 +1,15 @@
+db.Question.createIndex(
+                           {
+                             title: "text",
+                             body: "text",
+							 tags : "text",
+							 questionComments : "text"
+                           }
+                         );
+						 
+						 
+db.Question.createIndex(
+                           {
+                            date : -1
+                           }
+                         );

@@ -1,0 +1,323 @@
+
+/* 1 */
+db.getCollection('Question').insert(
+{
+    "username" : "adwaitbhandare",
+    "title" : "Controller authentication  to the EUM Server",
+    "body" : "It is not clear whether/how the Controller authenticates to the EUM Server and to the Analytics Processor (Events Service). Or is it the other way around? Please explain.",
+    "date" : ISODate("2015-10-25T12:00:00.000-07:00"),
+    "views" : "20",
+    "voteUps" : "10",
+    "voteDowns" : "",
+    "tags" : [ 
+        "controller-install", 
+        "EUM"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "The controller authenticates to the EUM server and analytics processor.  This is done via a shared secret key, generated at install time.",
+            "username" : "shashankdevan",
+            "date" : ISODate("2015-10-26T07:30:20.121-07:00"),
+            "voteUps" : "40",
+            "voteDowns" : "0",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+
+/* 2 */
+db.getCollection('Question').insert(
+{
+    "username" : "shashankdevan",
+    "title" : "SSL enabled config of Controller",
+    "body" : "I am currently facing issues with SSL-enabled field to while configuring the java agent",
+    "date" : ISODate("2015-09-25T12:00:00.000-07:00"),
+    "views" : "2",
+    "voteUps" : "",
+    "voteDowns" : "10",
+    "tags" : [ 
+        "java-agent", 
+        "controller", 
+        "controller-install", 
+        "agent-install"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "SSL-enabled field refers to whether the controller is listening on a secured port such as 443 or some other port. Just google for secured connection port numbers and check cross check with controller port to decide whether the connection is SSL enabled or not",
+            "username" : "shivloka",
+            "date" : ISODate("2015-09-26T07:30:20.121-07:00"),
+            "voteUps" : "10",
+            "voteDowns" : "0",
+            "answerComments" : [ 
+                {
+                    "username" : "shashankdevan",
+                    "comment" : "That helps !"
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 3 */
+db.getCollection('Question').insert(
+{
+    "username" : "nikhilkatre",
+    "title" : "I would like to know how to install a dockerized version of the appdynamics controller",
+    "body" : "I am an appdynamics user and would like to install the single platform docker version of the controller",
+    "date" : ISODate("2015-08-25T12:10:17.171-07:00"),
+    "views" : "21",
+    "voteUps" : "10",
+    "voteDowns" : "0",
+    "tags" : [ 
+        "dockerized", 
+        "controller", 
+        "docker", 
+        "controller-install", 
+        "install", 
+        "appdynamics"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "Once boot2docker is setup on your machine, you can check https://github.com/Appdynamics/appdynamics-platform-docker for more info.",
+            "username" : "shivloka",
+            "date" : ISODate("2015-09-01T07:30:30.121-07:00"),
+            "voteUps" : "10",
+            "voteDowns" : "0",
+            "answerComments" : [ 
+                {
+                    "username" : "nikhilkatre",
+                    "comment" : "thank you."
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 4 */
+db.getCollection('Question').insert(
+{
+    "username" : "adwaitbhandare",
+    "title" : "Controller authentication  to the EUM Server",
+    "body" : "It is not clear whether/how the Controller authenticates to the EUM Server and to the Analytics Processor (Events Service). Or is it the other way around? Please explain.",
+    "date" : ISODate("2015-10-25T12:00:00.000-07:00"),
+    "views" : "20",
+    "voteUps" : "10",
+    "voteDowns" : "",
+    "tags" : [ 
+        "controller-install", 
+        "EUM"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "The controller authenticates to the EUM server and analytics processor.  This is done via a shared secret key, generated at install time.",
+            "username" : "shashankdevan",
+            "date" : ISODate("2015-10-26T07:30:20.121-07:00"),
+            "voteUps" : "40",
+            "voteDowns" : "0",
+            "answerComments" : [ 
+                {
+                    "username" : "danielodievich",
+                    "comment" : "I’ve installed 4.1.3.1 on Windows 2012 R2 (actually upgrade) and it took no unusual time at all. :D "
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 5 */
+db.getCollection('Question').insert(
+{
+    "username" : "davidherst",
+    "title" : "Track license usage by application",
+    "body" : "We may have a customer who wants to track license usage by application, in order to charge back to different business units.  Has anyone addressed this question?",
+    "date" : ISODate("2014-11-25T12:00:00.000-07:00"),
+    "views" : "2",
+    "voteUps" : "",
+    "voteDowns" : "",
+    "tags" : [ 
+        "licence", 
+        "appdynamics"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "This has been discussed ad-nasuen on fieldeng. Gilbert has published a solution at https://github.com/Appdynamics/AppDLicenseCount.",
+            "username" : "pedropacheco",
+            "date" : ISODate("2014-11-26T07:30:20.121-07:00"),
+            "voteUps" : "10",
+            "voteDowns" : "0",
+            "answerComments" : [ 
+                {
+                    "username" : "johnbriere",
+                    "comment" : "I would also encourage on-prem customers looking for a charge-back solution to use a multi-tenant deploy. Gilbert's solution is also useful, but please be aware that solution uses node availability metrics which doesn't always match true license usage, especially on .NET. It's probably fine if the customer wants to use it in internal charge back calculations but it won't have a direct relationship to our own invoicing/license units."
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 6 */
+db.getCollection('Question').insert(
+{
+    "username" : "mitsutakamorishita",
+    "title" : "End to End visibility with Nginx+PHP",
+    "body" : "Hi,I have a prospect who would like to try our Web EUM and PHP monitoring.Their system's diagram is as follows:(a)Browser(JSAgent) or MobileApp ----> (b)Nginx (NO AGENT) ----> (c) Nginx + PHP-frm (PHP agent) ----> (d) Glassfish (Appserver Agent)Question: In this case, is it possible to have end-to-end visibility from (a) to (d) such as Flowmap, correlation between Browser Snapshot and Transaction Snapshot, without having agent on (b)?  (It's OK, if we cannot see (b) in Flowmap because there is no agent....) Also, the end user experience would be recognized as (a)->(b) or (a)->(c)?Dynatrace failed the POV and this is our turn!!Thank you for your advice and Best Regards,Morishita/MOMO",
+    "date" : ISODate("2014-12-25T12:00:00.000-07:00"),
+    "views" : "200",
+    "voteUps" : "",
+    "voteDowns" : "",
+    "tags" : [ 
+        "php", 
+        "nginx"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "Morishita, You'll get full correlation among this scenario, which the following points: Our web server agent only supports Apache today, so you won't see Nginx as a tier. This is coming soon, though.Yes, you'll get correlation from the browser snapshot to the PHP server BT snapshot. You don't need an agent on Nginx for this to work. The end user experience will be recognized as (a) -> (c) and from (c) snapshot you can drill down to (d)Go get 'em! ",
+            "username" : "omedhabib",
+            "date" : ISODate("2014-12-26T07:30:20.121-07:00"),
+            "voteUps" : "10",
+            "voteDowns" : "0",
+            "answerComments" : [ 
+                {
+                    "username" : "mitsutakamorishita",
+                    "comment" : "Really appreciate your input, Omed-san!"
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 7 */
+db.getCollection('Question').insert(
+{
+    "username" : "toddrader",
+    "title" : "ZooKeeper exit points",
+    "body" : "Has anybody set up custom exit points for Zookeeper calls from Java?  It looks to me like some of the methods on the ZooKeeper class are obvious candidates, and I can make some reasonable first-cut guesses, but I wanted to see what else is out there.  I do have some flexibility in trying out things in my POV environment.",
+    "date" : ISODate("2015-12-26T12:00:00.000-07:00"),
+    "views" : "4",
+    "voteUps" : "",
+    "voteDowns" : "",
+    "tags" : [ 
+        "zookeeper", 
+        "java"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "tyweis",
+            "comment" : "Hi Todd, Did you get this to work by chance?  I have a customer that is looking to instrument Zookeeper."
+        }, 
+        {
+            "username" : "erictan",
+            "comment" : "Same here!"
+        }, 
+        {
+            "username" : "kirangangadharappa",
+            "comment" : "What is the requirement ? How is ZK used in the context of a BT?"
+        }, 
+        {
+            "username" : "toddradar",
+            "comment" : "The requirement is just to show standard exit call metrics -- art, count, etc. -- and to have zk show up on the flow map."
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "",
+            "username" : "",
+            "date" : "",
+            "voteUps" : "",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 8 */
+db.getCollection('Question').insert(
+{
+    "username" : "bartvanknijff",
+    "title" : "Some Questions on Analytics",
+    "body" : "2 Questions after playing with the Analytics use cases on https://singularity.jira.com/wiki/display/SALESENG/Demo+Use+CasesBesides from probably http variables, where does the analytics data (userName, cartTotal, etc) originate from?With regards to security sensitive customers (financials), is this data (e.g. userName, creditCardNr) exposed by default? This week I learned that we do not do so, but I am not sure whether that relates to snapshots and/or http variables too.",
+    "date" : ISODate("2012-12-25T12:00:00.000-07:00"),
+    "views" : "23",
+    "voteUps" : "20",
+    "voteDowns" : "",
+    "tags" : [ 
+        "analytics", 
+        "snapshots"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "mikeanand",
+            "comment" : "Regarding security, we are conscious about data sensitivity and PM team is working hard to add greater controls.4.2 will add *custom data control* feature giving security conscious customers ability to control who views the data."
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "These items are exposed using Method Invocation Data Collectors and are directly from the parameters of invoked methods in the code. They are not automatically collected by default and must be explicitly defined.",
+            "username" : "jamestaylor",
+            "date" : ISODate("2012-12-26T07:30:20.121-07:00"),
+            "voteUps" : "40",
+            "voteDowns" : "0",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)

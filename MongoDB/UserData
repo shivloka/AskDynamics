@@ -1,0 +1,28 @@
+/* 1 */
+db.getCollection('User').insert({
+    "_id" : "adwaitbhandare",
+    "email" : "adwaitbhandare@appdynamics.com",
+    "password" : "appdynamics"
+})
+
+/* 2 */
+
+db.getCollection('User').insert({
+    "_id" : "shashankdevan",
+    "email" : "shashankdevan@appdynamics.com",
+    "password" : "appdynamics"
+})
+
+/* 3 */
+db.getCollection('User').insert({
+    "_id" : "nikhilkatre",
+    "email" : "nikhil.katre@appdynamics.com",
+    "password" : "appdynamics"
+})
+
+/* 4 */
+db.getCollection('User').insert({
+    "_id" : "shivloka",
+    "email" : "shiv.loka@appdynamics.com",
+    "password" : "appdynamics"
+})

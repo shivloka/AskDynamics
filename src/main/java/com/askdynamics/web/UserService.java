@@ -21,8 +21,6 @@ public class UserService {
     MongoClient dbClient;
     MongoDatabase db;
     MongoCollection<Document> userCollection;
-    User user = new User();
-
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     protected void dbConnection() {
@@ -37,20 +35,17 @@ public class UserService {
     @POST
     @Path("/insert")
     public String insertUser(@QueryParam(value = "email") String email, @QueryParam(value = "username") String username, @QueryParam(value = "password") String password) {
-        user.setEmail(email);
-        user.setUsername(username);
-        user.setPassword(password);
 
-        BasicDBObjectBuilder.start().add("_id", user.getUsername()).add("email", user.getEmail()).add("password", user.getPassword());
+
+        Document userDocument = new Document("_id", username).append("email", email).append("password", password);
+        this.userCollection.insertOne(userDocument);
         return "Successfully added user";
     }
 
     @POST
     @Path("/update")
     public String updateUser(@QueryParam(value = "username") String username, @QueryParam(value = "email") String email, @QueryParam(value = "password") String password) {
-        user.setUsername(username);
-        user.setEmail(email);
-        this.userCollection.updateOne(new Document("_id", user.getUsername()),
+        this.userCollection.updateOne(new Document("_id", username),
                 new Document("$set", new Document("email", email)).append("password", password));
 
         return "Successfully updated user ";
@@ -60,8 +55,7 @@ public class UserService {
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
     public String selectUser(@QueryParam(value = "username") String username) {
-        user.setUsername(username);
-        FindIterable<Document> userDetails = this.userCollection.find(new Document("_id", user.getUsername()));
+        FindIterable<Document> userDetails = this.userCollection.find(new Document("_id", username));
 
         userDetails.forEach(new Block<Document>() {
             public void apply(final Document document) {
@@ -74,9 +68,8 @@ public class UserService {
     @DELETE
     @Path("/remove")
     public String removeUser(@QueryParam(value = "username") String username) {
-        user.setUsername(username);
-        this.userCollection.deleteOne(new Document("_id", user.getUsername()));
-        return "Deleted User: " + user.getUsername();
+        this.userCollection.deleteOne(new Document("_id", username));
+        return "Deleted User: " + username;
     }
 
 

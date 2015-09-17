@@ -1,3 +1,8 @@
 # AskDynamics
-This is a test push
-a stackoverflow-like web-app to ask/answer AppDynamics related questions.
+A Stackoverflow-like web-app to ask/answer AppDynamics related questions.
+
+Developers:
+Adwait
+Nikhil
+Shashank
+Shiv

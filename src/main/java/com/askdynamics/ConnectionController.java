@@ -1,4 +1,4 @@
-package com.askdynamics.hackathon;
+package com.askdynamics;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;

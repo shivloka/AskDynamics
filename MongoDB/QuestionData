@@ -321,3 +321,479 @@ db.getCollection('Question').insert(
     ]
 }
 )
+
+/* 1 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbae757ddb46dd2a22dd65"),
+    "username" : "michealkrumm",
+    "title" : "Delete App versions in mobile",
+    "body" : "Does anyone know any way to delete app versions in our mobile RUM? The crash Dashboard is a bit messed up and a customer asks for this.",
+    "date" : ISODate("2011-10-25T12:00:00.000-07:00"),
+    "views" : "45",
+    "voteUps" : "38",
+    "voteDowns" : "28",
+    "tags" : [ 
+        "RUM", 
+        "controller"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "mattcannizzaro",
+            "comment" : "There's currently no way to delete specific mobile app versions. Can you explain more about the problems in the crash dashboard? If it's not working properly, we'd like to fix it."
+        }, 
+        {
+            "username" : "michealkrumm",
+            "comment" : "that was just a requirement because they were testing a lot of versions very fast and wanted to clean up after that. Nothing we must fix fast as a work around would be to my mind to define a 'test-app' and thereby circumventing this issue with a *bucket app*.Do you have an information when the apps will be removed out of our data sets or do they stay forever?"
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "Yes, I think your workaround would work well, and I'm pretty sure that some of our customers successfully done similar things in the past. It's helpful to separate test and prod data in separate applications for other reasons too.Crash reports are stored for one year before they are purged, but in general the UI should only be showing a mobile app version if there's some data to see from that version in the time range. If you're seeing something else, please send us details so we can fix it.",
+            "username" : "mattcannizzaro",
+            "date" : ISODate("2011-10-26T07:30:20.121-07:00"),
+            "voteUps" : "20",
+            "voteDowns" : "10",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 2 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbb0087ddb46dd2a22dd66"),
+    "username" : "jeanbaptiste",
+    "title" : "BRUM user data",
+    "body" : "I'm dealing with a SPA customer pushing BRUM who wanted to capture additional data. I'd obviously sent my preferred link explaining how to capture the user custom data. Great, he did it! However, he's just sent me an email saying that we can only capture data for the main page but not for the Ajax calls and virtual pages.. Therefore unusable for SP apps :( Anything to do, anything wrong he did? Haven't checked Jira yet (travelling), any RFE?",
+    "date" : ISODate("2011-11-24T11:00:00.000-07:00"),
+    "views" : "39",
+    "voteUps" : "10",
+    "voteDowns" : "",
+    "tags" : [ 
+        "userdata", 
+        "apps"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "stevejenner",
+            "comment" : "I would look at getting the data through Transaction Analytics if it is being generated server-side through AJAX calls.  What framework are they using for SPA?"
+        }, 
+        {
+            "username" : "jbmarzolf",
+            "comment" : "Angular.js and PHP app + MariaDB"
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "We added automatic detection for Angular based SPAs in 4.1 ",
+            "username" : "peterkacandes",
+            "date" : ISODate("2011-11-26T07:30:20.121-07:00"),
+            "voteUps" : "25",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "jbmarzolf",
+                    "comment" : "Thanks for your comment, I'm with the customer tomorrow morning and will push for PHP MIDC."
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 3 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbb6980ed6c6d6b0805f8b"),
+    "username" : "derrekyoung",
+    "title" : "HA for events service? ",
+    "body" : "Has there been any effort around HA for the Events Service? A cluster isn't exactly the same as HA, but a hot/cold setup would be just fine. Has anyone worked on this for another customer? ",
+    "date" : ISODate("2014-11-13T11:00:00.000-07:00"),
+    "views" : "29",
+    "voteUps" : "",
+    "voteDowns" : "",
+    "tags" : [ 
+        "purepath", 
+        "dynatrace"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "Elastic Search is built to provide HA by using shard replicas in a cluster in case nodes go down to protect against data loss and availability for queries: https://www.elastic.co/guide/en/elasticsearch/guide/current/distributed-cluster.html.  It handles it under the covers based on how you configure the cluster.  As far as I know this all happens automatically as you scale the cluster out and add more shards.",
+            "username" : "mattcleve",
+            "date" : ISODate("2014-12-16T07:30:20.121-07:00"),
+            "voteUps" : "25",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 4 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbbb440ed6c6d6b0805f8e"),
+    "username" : "christopherpierre",
+    "title" : "Dashboard for BT response time by node ",
+    "body" : " So obviously I can add per node custom metrics for response time for each node, but with 300 nodes, and nodes that disappear every day, any easier way to use our graphs to do BT response time by node? Am I just being a blockhead?",
+    "date" : ISODate("2011-11-13T11:20:10.000-07:00"),
+    "views" : "30",
+    "voteUps" : "18",
+    "voteDowns" : "",
+    "tags" : [ 
+        "dashboard", 
+        "BT"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "With respect to custom metrics in general, not in 4.1 but we’re planning to release custom metric star support in 4.2 which improves binding of custom metrics dramatically.",
+            "username" : "valc",
+            "date" : ISODate("2011-12-16T07:40:40.121-07:00"),
+            "voteUps" : "1",
+            "voteDowns" : "2",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 5 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbb22a0ed6c6d6b0805f8a"),
+    "username" : "momo",
+    "title" : "PurePath and our technology",
+    "body" : "I’m looking for the information the difference between PurePath from Dynatrace and our technology to correlate the transaction end to end. Any input would be appreciated.",
+    "date" : ISODate("2011-11-14T11:00:00.000-07:00"),
+    "views" : "29",
+    "voteUps" : "",
+    "voteDowns" : "",
+    "tags" : [ 
+        "purepath", 
+        "dynatrace"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "Purepaths are very much like our snapshots. DT creates them for every detected transaction, not just for the ones determined to be slow. PPs are constructed at the server end from two sets of data points via two kinds of instrumentation:One difference btw DT and AppD: In DT you don’t configure service endpoints.  DT automatically detects and lists web service calls, remote calls, all method calls, letting you identify what PPs called them. But the biggest difference is that with DT all the work is done by the server.  The agent does very little. (It doesn’t even do the instrumentation at JVM startup; it merely captures loaded classes and sends them to another component that modifies the byte code and sends it back.)  Every request gets a PP (except those you choose to ignore, like *.jpg or *.css).  The server puts them all together, then analyzes them for response time and other metrics.  AppD agents do much more evaluation of requests, deciding when to take snapshots.  This architectural difference lets AppD scale to greater numbers of nodes.",
+            "username" : "davidherst",
+            "date" : ISODate("2011-11-16T07:30:20.121-07:00"),
+            "voteUps" : "15",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "bartvanknijff",
+                    "comment" : "Yesterday I learned that DT captures full call payloads, i.e. variable names with values, while this is disabled by default in AppD (i.e. only variable names, no values). In AppD you can opt which variable values you want exposed.This is often very relevant for security sensitive customers (e.g. financials) who do not want to expose private data (e.g. login names, credit card nrs etc) to IT staff."
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 6 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbb8790ed6c6d6b0805f8c"),
+    "username" : "derrekyoung",
+    "title" : "Vertex --- anything prebuilt? ",
+    "body" : "From previous WIN reports I see that Vertex is a customer and their 'swat team' uses AppDynamics.Is there any prebuilt config information regarding either initial configuration or BT naming, grouping, etc. ?     I have a prospect using Vertex on windows with Tomcat6   and the service  is started via   'tomcat6  //RS//vertex'. I was able to successfully get the app registered in AppD from the command line  (having used the normal tomcat techniques) but it doesn’t work for the service start/stop facility via Windows.I believe the changes have to be done via  ‘tomcatw’  to make sure that the service start/stop actions pick up our instrumentation.  The prospect is a bit resistant to change the way the application is started from when the Vertex folks installed it. Looking for evidence that the Vertex swat team uses AppD and this is how they do it!",
+    "date" : ISODate("2014-11-13T11:00:10.000-07:00"),
+    "views" : "38",
+    "voteUps" : "23",
+    "voteDowns" : "",
+    "tags" : [ 
+        "purepath", 
+        "dynatrace"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "toddrader",
+            "comment" : "Not sure if you already know this, Mike, but there is a Vertex Pharmaceuticals, Vertex Inc. tax compliance software, and Vertex Software Corporation.  I'm guessing you mean Vertex Software Corporation?"
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "If is Vert.X (this critter: http://vertx.io/), I would suggest looking at the suport threads from Intralinks. Ken Parrish did some work with the app there. Ticket 34746 has the gorey details. Nothing OOTB, lots of custom correlation.",
+            "username" : "michealmcdowell",
+            "date" : ISODate("2014-12-16T07:30:30.121-07:00"),
+            "voteUps" : "25",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 7 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbba340ed6c6d6b0805f8d"),
+    "username" : "peterholditch",
+    "title" : "General Audit Question ",
+    "body" : " Why do the Agents keep the Controller's and the Root CA's (internally signed certificate case) in a password-locked keystore?",
+    "date" : ISODate("2013-11-13T11:00:10.000-07:00"),
+    "views" : "3",
+    "voteUps" : "1",
+    "voteDowns" : "",
+    "tags" : [ 
+        "general", 
+        "controller"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "Generally Trusted Certificate Store, which contains signed public keys from certificate authority (or be it self signed certificates, as in that case you yourself are actling like a signing/certificate authority), is password protected in order to prevent hackers to modify these public keys. Note here the objective is to prevent accidental modification/hack, password protected key store is not meant to prevent reading public keys. For more info., you may want to read a bit more about 'X.509 based authentication' or 'Certificate based authentication'",
+            "username" : "awaisahmed",
+            "date" : ISODate("2013-12-16T07:30:30.121-07:00"),
+            "voteUps" : "25",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 8 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbbc4434b646b7d4c6cb39"),
+    "username" : "kenparrish",
+    "title" : "Server Policy file for WebSphere ",
+    "body" : " Is it possible to deploy this security fix to one or more application specific server.policy files (or equivalent, per ear file) as opposed to the server.policy file for the entire instance of WebSphere?",
+    "date" : ISODate("2011-11-12T11:20:10.000-07:00"),
+    "views" : "3",
+    "voteUps" : "",
+    "voteDowns" : "",
+    "tags" : [ 
+        "websphere", 
+        "server"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "jackginnever",
+            "comment" : "We ran into that at USPS.  I haven't found a way to script the changes that are needed for the security policy changes.  We pretty much had to try a deployment and if it got security errors we added the needed changes.  I feel your pain because it definitely slows down the agent rollout.  Would be nice if we could just add some generic scripting to insert the changes when they're needed."
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "The best advice for installations that have automated deployment systems (like Chef, Puppet, Ansible, home-grown, etc.) is to incorporate these policy file changes into those systems so they never get clobbered.",
+            "username" : "prantadas",
+            "date" : ISODate("2011-12-13T07:40:40.121-07:00"),
+            "voteUps" : "1",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 9 */
+db.getCollection('Question').insert(
+{
+    "_id" : ObjectId("55fbbf6b34b646b7d4c6cb3a"),
+    "username" : "blakeschoppa",
+    "title" : "MQ Extension -- User Permissions ",
+    "body" : "I'm working with a customer who is trying to configure the MQ monitoring extension and they received an error indicating a permissions issue:  MQJE001: Completion Code '2', Reason '2035'. To monitor MQ what specific permissions does the queue manager user account need? ",
+    "date" : ISODate("2011-02-12T11:20:10.000-07:00"),
+    "views" : "3",
+    "voteUps" : "",
+    "voteDowns" : "",
+    "tags" : [ 
+        "websphere", 
+        "server"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "Admin level permission and make sure to refresh the permission cache after making the change. Deploy extension local to the queue manager.",
+            "username" : "prantadas",
+            "date" : ISODate("2011-12-13T07:40:40.121-07:00"),
+            "voteUps" : "1",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 10 */
+{
+    "_id" : ObjectId("55fbc04734b646b7d4c6cb3b"),
+    "username" : "derrekyoung",
+    "title" : "DB Mon + AWS RedShift ?",
+    "body" : " Has there been any thought toward first-class support of AWS RedShift within DB Mon?",
+    "date" : ISODate("2011-11-15T11:20:10.000-07:00"),
+    "views" : "30",
+    "voteUps" : "2",
+    "voteDowns" : "",
+    "tags" : [ 
+        "aws", 
+        "db_mon"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+    ],
+    "answers" : [ 
+        {
+            "body" : "I have looked at Redshift fairly recently. Although it is based on PostgreSQL, it’s not something we can support immediately with DBMon, as it would require some code changes to work.",
+            "username" : "imcguinness",
+            "date" : ISODate("2011-12-18T07:40:40.121-07:00"),
+            "voteUps" : "2",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+/* 11 */
+db.getCollection('Question').insert(
+{
+    "username" : "derrekyoung",
+    "title" : "DB Mon query --> active session?",
+    "body" : " How do we go from a DB Mon query into the active session? I see how to go from a client into that client's session, but not the reverse flow. ",
+    "date" : ISODate("2012-12-15T11:20:10.000-07:00"),
+    "views" : "3",
+    "voteUps" : "",
+    "voteDowns" : "",
+    "tags" : [ 
+        "session", 
+        "db_mon"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+],
+    "answers" : [ 
+        {
+            "body" : "You can’t. We do have the data to support this kind of drilldown, so please open an ER.",
+            "username" : "imcguinness",
+            "date" : ISODate("2012-12-24T07:40:40.121-07:00"),
+            "voteUps" : "",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+
+/* 12 */
+db.getCollection('Question').insert(
+{
+    "username" : "amechain",
+    "title" : "OpenShift cartridge",
+    "body" : " Does anyone know if we have an updated OpenShift cartridge available? Current version contains a 3.9 agent instead of a 4.1. ",
+    "date" : ISODate("2012-11-15T11:22:10.000-07:00"),
+    "views" : "3",
+    "voteUps" : "1",
+    "voteDowns" : "",
+    "tags" : [ 
+        "session", 
+        "db_mon"
+    ],
+    "questionComments" : [ 
+        {
+            "username" : "",
+            "comment" : ""
+        }
+],
+    "answers" : [ 
+        {
+            "body" : "A 4.1.0.4 agent is on this branch here: https://github.com/Appdynamics/openshift-appdynamics-jboss-cartridge/tree/appAgent-4.1.0.4",
+            "username" : "adennis",
+            "date" : ISODate("2012-11-24T07:42:40.121-07:00"),
+            "voteUps" : "2",
+            "voteDowns" : "",
+            "answerComments" : [ 
+                {
+                    "username" : "",
+                    "comment" : ""
+                }
+            ]
+        }
+    ]
+}
+)
+
+

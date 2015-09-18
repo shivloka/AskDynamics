@@ -1,12 +1,8 @@
 package com.askdynamics.web;
 
 import com.askdynamics.ConnectionManager;
-import com.askdynamics.dao.User;
 import com.askdynamics.persistence.IPersistor;
 import com.askdynamics.persistence.UserPersistor;
-import com.mongodb.BasicDBObjectBuilder;
-import com.mongodb.Block;
-import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -16,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/user")
 public class UserService {
@@ -26,7 +24,8 @@ public class UserService {
 
 
     private IPersistor userPersistor = new UserPersistor();
-    public IPersistor getUserPersistor(){
+
+    public IPersistor getUserPersistor() {
         return userPersistor;
     }
 
@@ -61,14 +60,19 @@ public class UserService {
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
     public String selectUser(@QueryParam(value = "username") String username) {
-        FindIterable<Document> userDetails = this.userCollection.find(new Document("_id", username));
+        getCollection();
+        FindIterable<Document> resultSet = this.userCollection.find(new Document("_id", username));
+        List result = new ArrayList();
 
-        userDetails.forEach(new Block<Document>() {
-            public void apply(final Document document) {
-                System.out.println(document);
-            }
-        });
-        return "Returned user";
+        for (Document document : resultSet) {
+            System.out.println(document);
+        }
+//        userDetails.forEach(new Block<Document>() {
+//            public void apply(final Document document) {
+//                System.out.println(document);
+//            }
+//        });
+        return "Returned a user";
     }
 
     @DELETE

@@ -15,8 +15,7 @@ import java.util.*;
 public class SearchUtil {
 
     private MongoDatabase getDatabaseObject() {
-        MongoClient dbClient = ConnectionManager.getInstance().getMongoClient();
-        return dbClient.getDatabase("askdynamics");
+        return ConnectionManager.getInstance().getDb();
     }
 
     public Collection<String> search(List<String> searchlist){

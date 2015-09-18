@@ -9,7 +9,7 @@ public class ConnectionManager {
     private MongoClient mongoClient;
 
     private ConnectionManager(){
-        mongoClient = new MongoClient("localhost", 27017);
+        mongoClient = new MongoClient("54.71.167.109", 27017);
     }
     public static ConnectionManager getInstance(){
         if(INSTANCE == null){

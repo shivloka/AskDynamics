@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public @Data class Question extends Item {
+public
+@Data
+class Question extends Item {
     private final String username;
     private String title;
     private String body;
@@ -18,7 +20,7 @@ public @Data class Question extends Item {
     private List<Comment> comments;
     private List<Answer> answers;
 
-    public Question(String username, String title, String body, List<String> tags){
+    public Question(String username, String title, String body, List<String> tags) {
         this.username = username;
         this.title = title;
         this.body = body;
@@ -31,15 +33,22 @@ public @Data class Question extends Item {
         this.answers = null;
     }
 
-    public void addComment(Comment comment){
-        if(this.comments == null)
+    public void addComment(Comment comment) {
+        if (this.comments == null)
             this.comments = new ArrayList<Comment>();
         this.comments.add(comment);
     }
 
-    public void addAnswer(Answer answer){
-        if(this.answers == null)
+    public void addAnswer(Answer answer) {
+        if (this.answers == null)
             this.answers = new ArrayList<Answer>();
         this.answers.add(answer);
+    }
+
+    public Answer getAnswer(Integer index) throws Exception {
+        if (index < 0)
+            throw new Exception("Index Out of Bounds");
+        return answers.get(index);
+
     }
 }

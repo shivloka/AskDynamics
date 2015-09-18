@@ -2,7 +2,6 @@ package com.askdynamics.dao;
 
 import lombok.Data;
 
-import javax.ws.rs.QueryParam;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -27,9 +26,20 @@ public @Data class Question extends Item {
         this.views = 0;
         this.voteUps = 0;
         this.voteDowns = 0;
-        this.tags = tags;
-        this.comments = new ArrayList<Comment>();
-        this.answers = new ArrayList<Answer>();
+        this.tags = new ArrayList<String>();
+        this.comments = null;
+        this.answers = null;
     }
 
+    public void addComment(Comment comment){
+        if(this.comments == null)
+            this.comments = new ArrayList<Comment>();
+        this.comments.add(comment);
+    }
+
+    public void addAnswer(Answer answer){
+        if(this.answers == null)
+            this.answers = new ArrayList<Answer>();
+        this.answers.add(answer);
+    }
 }

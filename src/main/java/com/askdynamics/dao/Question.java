@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Question {
+public @Data class Question extends Item {
     private final String username;
     private String title;
     private String body;

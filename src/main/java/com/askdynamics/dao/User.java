@@ -1,6 +1,6 @@
 package com.askdynamics.dao;
 
-public class User {
+public class User extends Item {
     private String username;
     private String password;
     private String email;

@@ -1,21 +1,32 @@
 package com.askdynamics.web;
 
-import com.askdynamics.Persistor;
 import com.askdynamics.dao.Question;
+import com.askdynamics.persistence.IPersistor;
+import com.askdynamics.persistence.QuestionPersistor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Path("/question")
 public class QuestionService {
-    private Persistor persistor = new Persistor();
+
     private static final Logger logger = LoggerFactory.getLogger(QuestionService.class);
+    private IPersistor questionPersistor = new QuestionPersistor();
+
+    public IPersistor getQuestionPersistor() {
+        return questionPersistor;
+    }
 
     @POST
     @Path("/post")
     public void postQuestion(@QueryParam("title") String title, @QueryParam("body") String body, @QueryParam("tags") String tags, @QueryParam("username") String username) {
-        //persistor.write(new Question(username, title, body, tags))
+        List<String> tagList = tags != null && tags.length() > 0 && tags.indexOf(",") != -1 ? Arrays.asList(tags.split(",")) : Arrays.asList(tags);
+        Question question = new Question(username, title, body, tagList);
+        getQuestionPersistor().write(question);
     }
 
     @PUT

@@ -1,6 +1,7 @@
 package com.askdynamics;
 
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
 
 public class ConnectionManager {
 
@@ -19,7 +20,8 @@ public class ConnectionManager {
         }
         return INSTANCE;
     }
-    public MongoClient getMongoClient() {
-        return mongoClient;
+
+    public MongoDatabase getDb() {
+        return mongoClient.getDatabase("askdynamics");
     }
 }

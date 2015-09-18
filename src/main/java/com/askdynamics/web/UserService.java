@@ -2,6 +2,8 @@ package com.askdynamics.web;
 
 import com.askdynamics.ConnectionManager;
 import com.askdynamics.dao.User;
+import com.askdynamics.persistence.IPersistor;
+import com.askdynamics.persistence.UserPersistor;
 import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.Block;
 import com.mongodb.MongoClient;
@@ -18,14 +20,18 @@ import javax.ws.rs.core.MediaType;
 @Path("/user")
 public class UserService {
 
-    MongoClient dbClient;
     MongoDatabase db;
     MongoCollection<Document> userCollection;
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
-    protected void dbConnection() {
-        this.dbClient = ConnectionManager.getInstance().getMongoClient();
-        this.db = dbClient.getDatabase("askdynamics");
+
+    private IPersistor userPersistor = new UserPersistor();
+    public IPersistor getUserPersistor(){
+        return userPersistor;
+    }
+
+    protected void getCollection() {
+        this.db = ConnectionManager.getInstance().getDb();
         this.userCollection = db.getCollection("User");
 
         logger.info("User collection is " + db.listCollectionNames());

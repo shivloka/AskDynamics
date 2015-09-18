@@ -11,17 +11,17 @@ public class UserPersistor implements IPersistor {
     }
 
     @Override
-    public Item read(String id) {
+    public Item read(Object id) {
         return null;
     }
 
     @Override
-    public void update(String id, Item item) {
+    public void update(Object id, Item item) {
 
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(Object id) {
 
     }
 

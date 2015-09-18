@@ -51,4 +51,9 @@ class Question extends Item {
         return answers.get(index);
 
     }
+
+    public String toString(){
+        String s = this.username + ">>" + this.title + ":" + this.body;
+        return s;
+    }
 }

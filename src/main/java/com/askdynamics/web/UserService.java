@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.List;
+
+import static com.mongodb.client.model.Filters.eq;
 
 @Path("/user")
 public class UserService {
@@ -39,19 +39,23 @@ public class UserService {
 
     @POST
     @Path("/insert")
-    public String insertUser(@QueryParam(value = "email") String email, @QueryParam(value = "username") String username, @QueryParam(value = "password") String password) {
-
-
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String insertUser(@QueryParam(value = "email") String email, @QueryParam(value =
+            "username") String username, @QueryParam(value = "password") String password) {
         Document userDocument = new Document("_id", username).append("email", email).append("password", password);
         this.userCollection.insertOne(userDocument);
         return "Successfully added user";
     }
 
-    @POST
+    @PUT
     @Path("/update")
-    public String updateUser(@QueryParam(value = "username") String username, @QueryParam(value = "email") String email, @QueryParam(value = "password") String password) {
-        this.userCollection.updateOne(new Document("_id", username),
-                new Document("$set", new Document("email", email)).append("password", password));
+    public String updateUser(@QueryParam("username") String username,
+                             @QueryParam("email") String email,
+                             @QueryParam("password") String password) {
+        getCollection();
+        this.userCollection.updateOne(eq("_id", username),
+                new Document("$set", new Document("password", password))
+                        .append("$set", new Document("email", email)));
 
         return "Successfully updated user ";
     }
@@ -62,17 +66,13 @@ public class UserService {
     public String selectUser(@QueryParam(value = "username") String username) {
         getCollection();
         FindIterable<Document> resultSet = this.userCollection.find(new Document("_id", username));
-        List result = new ArrayList();
 
+        String s = null;
         for (Document document : resultSet) {
-            System.out.println(document);
+            s = document.toJson();
+            logger.info("Document:" + document);
         }
-//        userDetails.forEach(new Block<Document>() {
-//            public void apply(final Document document) {
-//                System.out.println(document);
-//            }
-//        });
-        return "Returned a user";
+        return s;
     }
 
     @DELETE

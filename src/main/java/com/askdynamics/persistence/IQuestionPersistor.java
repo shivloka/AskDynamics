@@ -4,7 +4,9 @@ import com.askdynamics.dao.Answer;
 import com.askdynamics.dao.Comment;
 
 public interface IQuestionPersistor extends IPersistor {
-    public void addAnswer(String id, Answer answer);
-    public void addQuestionComment(String id, Comment comment);
-    public void addAnswerComment(String id, Integer index, Comment comment);
+    public void addAnswer(Object id, Answer answer);
+
+    public void addQuestionComment(Object id, Comment comment);
+
+    public void addAnswerComment(Object id, Integer index, Comment comment);
 }

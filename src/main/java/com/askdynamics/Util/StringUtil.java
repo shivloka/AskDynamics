@@ -1,16 +1,14 @@
 package com.askdynamics.Util;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import org.json.JSONArray;
 
-public class StringUtil{
+import java.util.*;
 
-    public static List<String> getAllCombination(String searchStr){
+public class StringUtil {
 
-        if(searchStr==null){
+    public static List<String> getAllCombination(String searchStr) {
+
+        if (searchStr == null) {
             return null;
         }
 
@@ -25,7 +23,7 @@ public class StringUtil{
         };
         Collections.sort(combinations, StringComparator);
 
-        for (String str : combinations){
+        for (String str : combinations) {
             System.out.println(str);
         }
         //  return arrangeCombinations(combinations);
@@ -33,15 +31,12 @@ public class StringUtil{
 
     }
 
-
-
-
-    private static void getConfigurations (int index, String[] input, List<String> output, StringBuffer buffer) {
+    private static void getConfigurations(int index, String[] input, List<String> output, StringBuffer buffer) {
         //  for (index; index < )
         if (index >= input.length)
             return;
 
-        for (int cnt = index; cnt < input.length; cnt++){
+        for (int cnt = index; cnt < input.length; cnt++) {
             if (cnt > index)
                 buffer.append(" ");
 
@@ -51,15 +46,19 @@ public class StringUtil{
             //System.out.println(buffer.toString().toLowerCase());
         }
 
-        getConfigurations(index+1, input, output, new StringBuffer());
+        getConfigurations(index + 1, input, output, new StringBuffer());
     }
 
     public static void main(String[] args) {
-        Collection<String> listStr =  new SearchUtil().search(getAllCombination("EUM Server"));
+        Collection<String> listStr = QuestionUtil.search(getAllCombination("EUM Server"));
+        JSONArray jsonArray = new JSONArray(listStr);
 
-        for (String str : listStr) {
-            System.out.println(str);
-        }
+        listStr = QuestionUtil.searchByUserName("adwaitbhandare", 10);
+        jsonArray = new JSONArray(listStr);
+
+        listStr = QuestionUtil.search("date", 10);
+        jsonArray = new JSONArray(listStr);
+
 
     }
 }

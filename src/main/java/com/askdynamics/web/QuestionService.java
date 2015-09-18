@@ -1,14 +1,18 @@
 package com.askdynamics.web;
 
+import com.askdynamics.Util.QuestionUtil;
+import com.askdynamics.Util.StringUtil;
 import com.askdynamics.dao.Question;
 import com.askdynamics.persistence.IPersistor;
 import com.askdynamics.persistence.QuestionPersistor;
+import org.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
-import java.util.ArrayList;
+import javax.ws.rs.core.MediaType;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 @Path("/question")
@@ -36,8 +40,32 @@ public class QuestionService {
 
     @GET
     @Path("/questions")
-    public void getAllQuestions() {
+    @Produces(MediaType.APPLICATION_JSON)
+    public JSONArray getAllQuestions(@QueryParam("orderfieldName") String orderFieldName) {
+        Collection<String> questions = null;
+        if (orderFieldName == null)
+                orderFieldName = "date";
+
+        questions = QuestionUtil.search(orderFieldName, 10);
+
+        return new JSONArray(questions);
     }
+
+    @GET
+    @Path("/search")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JSONArray searchQuestions(@QueryParam("searchString") String searchString) {
+        Collection<String> questions = null;
+
+        if (searchString.startsWith("@")) {
+            questions = QuestionUtil.searchByUserName(searchString.substring(1), 10);
+        } else {
+            questions = QuestionUtil.search(StringUtil.getAllCombination(searchString));
+        }
+
+        return new JSONArray(questions);
+    }
+
 
     @DELETE
     @Path("/delete")

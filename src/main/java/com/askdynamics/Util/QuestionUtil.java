@@ -3,7 +3,6 @@ package com.askdynamics.Util;
 import com.askdynamics.ConnectionManager;
 import com.mongodb.*;
 import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
@@ -12,14 +11,13 @@ import java.util.*;
 /**
  * Created by adwait.bhandare on 9/17/15.
  */
-public class SearchUtil {
+public class QuestionUtil {
 
-    private MongoDatabase getDatabaseObject() {
-        MongoClient dbClient = ConnectionManager.getInstance().getMongoClient();
-        return dbClient.getDatabase("askdynamics");
+    private static MongoDatabase getDatabaseObject() {
+       return ConnectionManager.getInstance().getDb();
     }
 
-    public Collection<String> search(List<String> searchlist){
+    public static Collection<String> search(List<String> searchlist){
         Iterator<String> strIterator = searchlist.iterator();
         MongoDatabase db = getDatabaseObject();
 
@@ -67,4 +65,31 @@ public class SearchUtil {
        }
         return stringDocumentMap.values();
      }
+
+    public static Collection<String> search(String fieldName, int limit){
+        MongoDatabase db = getDatabaseObject();
+        Collection<String> strings = new ArrayList<String>();
+        FindIterable<Document> documents =  db.getCollection("Question").find().sort(new BasicDBObject(fieldName, -1)).limit(limit);
+
+        for (Document document : documents) {
+            System.out.println(document.get(fieldName).toString());
+            strings.add(document.toJson());
+        }
+
+        return strings;
+    }
+
+    public static Collection<String> searchByUserName(String userName, int i) {
+        MongoDatabase db = getDatabaseObject();
+        Collection<String> strings = new ArrayList<String>();
+
+        BasicDBObject query = new BasicDBObject();
+        query.put("username", userName);
+        FindIterable<Document> documents =  db.getCollection("Question").find(query);
+        for (Document document : documents) {
+            System.out.println(document.get("username").toString());
+            strings.add(document.toJson());
+        }
+        return strings;
+    }
 }

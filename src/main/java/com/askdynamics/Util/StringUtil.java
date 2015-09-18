@@ -1,5 +1,7 @@
 package com.askdynamics.Util;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -55,11 +57,16 @@ public class StringUtil{
     }
 
     public static void main(String[] args) {
-        Collection<String> listStr =  new SearchUtil().search(getAllCombination("EUM Server"));
+        Collection<String> listStr =  QuestionUtil.search(getAllCombination("EUM Server"));
+        JSONArray jsonArray = new JSONArray(listStr);
 
-        for (String str : listStr) {
-            System.out.println(str);
-        }
+        listStr =  QuestionUtil.searchByUserName("adwaitbhandare", 10);
+        jsonArray = new JSONArray(listStr);
+
+        listStr =  QuestionUtil.search("date", 10);
+        jsonArray = new JSONArray(listStr);
+
+
 
     }
 }

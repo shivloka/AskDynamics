@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -31,14 +32,15 @@ public class QuestionService {
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void postQuestion(@QueryParam("title") String title,
-                             @QueryParam("body") String body,
-                             @QueryParam("tags") String tags,
-                             @QueryParam("username") String username) {
+    public Response postQuestion(@QueryParam("title") String title,
+                                 @QueryParam("body") String body,
+                                 @QueryParam("tags") String tags,
+                                 @QueryParam("username") String username) {
 
         List tagList = tokenizeTags(tags);
         Question question = new Question(username, title, body, tagList);
         getQuestionPersistor().write(question);
+        return Response.ok("200 OK").header("Access-Control-Allow-Origin", "true").build();
     }
 
     @PUT

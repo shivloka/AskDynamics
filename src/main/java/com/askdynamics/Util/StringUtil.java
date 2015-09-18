@@ -55,6 +55,11 @@ public class StringUtil{
     }
 
     public static void main(String[] args) {
-        getAllCombination("Agent Configuraion Setup");
+        Collection<String> listStr =  new SearchUtil().search(getAllCombination("EUM Server"));
+
+        for (String str : listStr) {
+            System.out.println(str);
+        }
+
     }
 }
